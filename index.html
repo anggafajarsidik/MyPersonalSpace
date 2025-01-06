@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Portfolio Website</title>
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">AFS</a>
+
+      <nav>
+        <a href="#" class="active"> Home</a>
+        <a href="#about" class="about-link">About</a>
+        <a href="#">Skills</a>
+        <a href="#">Education</a>
+        <a href="#">Experience</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+    <section class="home">
+      <div class="home-img">
+        <img src="main.jpg" alt="" />
+      </div>
+      <div class="home-content">
+        <h1>Hi, It's <span>AFS</span></h1>
+        <h3 class="typing-text">I'm a <span></span></h3>
+        <p>
+          Welcome to my digital space! As a crypto enthusiast, 
+          I'm exploring the ever-evolving world of blockchain technology, 
+          driven by curiosity and a passion for innovation.
+        </p>
+        <div class="social-icons">
+          <a href="https://twitter.com/anggafajars12" target="_blank"
+            ><i class="fa-brands fa-x-twitter"></i
+          ></a>
+        </div>
+        <a href="https://twitter.com/anggafajars12" class="btn">Hire me</a>
+      </div>
+    </section>
+    <!--==================== ABOUT ====================-->
+    <section class="about section" id="about">
+      <h2 class="section__title">About Me</h2>
+      <span class="section__subtitle"> My Introduction</span>
+
+      <div data-aos="fade-left" class="about__container container grid">
+        <img src="about.jpg" alt="About Me" class="about__img" />
+
+        <div class="about__data">
+          <p class="about__description">
+            Hello! My name is Angga. I am a blockchain and web3 technology enthusiast. 
+            I have participated in various testnet projects, run validator nodes, and built communities. <br />
+          </p>
+
+          <div class="about_info">
+            <div>
+              <span class="about__info-title">3+</span>
+              <span class="about__info-name"
+                >Years <br />
+                experience</span
+              >
+            </div>
+            <div>
+              <span class="about__info-title">27+</span>
+              <span class="about__info-name"
+                >Completed <br />
+                project</span
+              >
+            </div>
+            <div>
+              <span class="about__info-title">24/7</span>
+              <span class="about__info-name"
+                >Online<br />
+                support</span
+              >
+            </div>
+          </div>
+
+    <script>
+      const typingText = document.querySelector(".typing-text span");
+      const texts = ["Crypto Enthusiast", "Tester", "Learner"];
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function type() {
+        const currentText = texts[textIndex];
+        
+        if (isDeleting) {
+          typingText.textContent = currentText.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          typingText.textContent = currentText.substring(0, charIndex + 1);
+          charIndex++;
+        }
+
+        if (!isDeleting && charIndex === currentText.length) {
+          isDeleting = true;
+          setTimeout(type, 2000);
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          textIndex = (textIndex + 1) % texts.length;
+          setTimeout(type, 500);
+        } else {
+          setTimeout(type, isDeleting ? 50 : 100);
+        }
+      }
+
+      type();
+    </script>
+  </body>
+</html>
